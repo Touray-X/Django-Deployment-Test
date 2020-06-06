@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>RELATIVE URL TEMPLATE</h1>
+  <!-- THE "appFour" that I'm passing here is not from the folder name  -->
+  <!-- but from the urls.py(appFour) -->
+  <!-- this was for django 2.0 but it's still working -->
+  <!-- avoid making spaces insdie the single quotes -->
+  <a href="{% url 'appFour:page2' %}"> Go to page2</a>
+<!-- django.contrib.admin is also an application created by default and has its own index -->
+<!-- I have to make the migration inorder for it to work sometimes -->
+  <a href="{% url 'admin:index' %}">GO TO ADMIN</a>
+  <!-- And now to link to the index, it's fairly simple -->
+  <a href="{% url 'index' %}">BACK TO HOMEPAGE</a>
+
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<!-- This has been inherited from the base class -->
+<!-- Remove every skeleton except the doctype html -->
+{% extends 'appFour/base.html'%}
+
+  {% block body_block %}
+<!-- We have created our own custom filter -->
+   <h1>{{ text|cut:'high' }}</h1>
+    <h1>Hello! I'm from page1</h1>
+    <h1>{{ number|add:'9348' }}</h1>
+
+    {% endblock %}

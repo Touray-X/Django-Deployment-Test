@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+  </head>
+  <body>
+    <nav class='navabar navbar-default navbar-static-top'>
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'appFour:page2' %}">BRAND</a></li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+          <!-- I just have to specify the name of the function for this one -->
+          <li><a class="navbar-link" href="{% url 'index' %}">Other</a></li>
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <div class="container">
+      {% block body_block %}
+      <h1>this is the base.html</h1>
+      <!-- Anything outside of this block can be inherited -->
+      {% endblock %}
+    </div>
+
+  </body>
+</html>
