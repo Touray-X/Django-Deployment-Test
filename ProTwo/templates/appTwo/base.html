@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+  </head>
+  <body>
+    <!-- Creating a navigation bar which is inherited by other templates -->
+    <nav class="navbar navbar-expand-lg navbar-inverse">
+      <div class="container">
+        <ul class=nav navbar-nav>
+          <!-- Users cannot logout if they have not log in -->
+        <li><a class="navbar-brand" href="{% url 'appTwo:book' %}">BOOK AN APPOINTMENT</a></li>
+        {% if user.is_authenticated %}
+        <li><a class="navbar-brand" href="{% url 'user_logout' %}">LOGOUT</a></li>
+        {% else %}
+        <li><a class="navbar-brand" href="{% url 'appTwo:user_login'%}">LOGIN</a></li>
+        {% endif %}
+        <li><a class="navbar-brand" href="{% url 'appTwo:clients' %}">SIGNUP</a></li>
+        <li><a class="navbar-brand" href="{% url 'admin:index'%}">ADMIN</a></li>
+
+      </ul>
+      </div>
+    </nav>
+    {% block body_block %}
+    <div class="container">
+      <div class="jumbotron">
+        <h1>WELCOME TO XXX'S BARBING SALON!</h1>
+        <h2>YOU NEED A BRILLIANT BARB, BOOK AN APPOINTMENT!</h2>
+      </div>
+    </div>
+<!-- This div contains the pictures displayed in a bootstrap grid style -->
+    <div class="container">
+<!-- First row of pictures -->
+      <div class="row">
+        <div class="col-lg-3 sm-6"><img src="{% static 'images/barb1jpeg' %}" class="img-thumbnail" alt=""></div>
+        <div class="col-lg-3 sm-6"><img src="{% static 'images/barb2.jpg' %}" class="img-thumbnail" alt=""></div>
+        <div class="col-lg-3 sm-6"><img src="{% static 'images/barb3.jpeg' %}" class="img-thumbnail" alt=""></div>
+
+      </div>
+<!-- Second row of pictures -->
+      <div class="row">
+        <div class="col-lg-3 sm-6"><img src="{% static 'images/barb4.jpg' %}" class="img-thumbnail" alt=""></div>
+        <div class="col-lg-3 sm-6"><img src="{% static 'images/barb5.jpg' %}" class="img-thumbnail" alt=""></div>
+        <div class="col-lg-3 sm-6"><img src="{% static 'images/barb6.jpg' %}" class="img-thumbnail" alt=""></div>
+
+      </div>
+      {% endblock %}
+  </body>
+</html>

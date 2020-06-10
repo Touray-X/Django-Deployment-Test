@@ -1,0 +1,29 @@
+{% extends 'appTwo/base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+
+{% block body_block %}
+ <div class="container">
+
+<div class="jumbotron">
+<h1>login here!</h1>
+ <form action="{% url 'appTwo:user_login' %}" method="POST">
+   {% csrf_token %}
+ <!-- We did not create a specific form for our login, so we're using labels to tag them -->
+ <!-- login form styled with bootstrap -->
+<div class="form-group">
+   <label for="username">Username: </label>
+   <input type="text" class="form-control" name="username" placeholder="Username here" aria-describedby="emailHelp"><br>
+ </div>
+<div class="form-group">
+   <label for="password">Password: </label>
+   <input type="password" class="form-control" name="password" placeholder="password"><br>
+ </div>
+
+   <input type="submit" name="submit" class="btn btn-primary btn-lg" value="login">
+
+ </form>
+</div>
+</div>
+{% endblock %}
